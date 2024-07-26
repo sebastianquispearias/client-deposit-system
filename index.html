@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/styles.css"> <!-- Ensure this path is correct -->
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+  <script src="firebaseConfig.js"></script> <!-- Your configuration file -->
+</head>
+<body>
+  <h1>Login</h1>
+  <form id="loginForm">
+    <input type="text" id="dni" placeholder="DNI" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+  <div id="error-message" style="color: red;"></div>
+  <div id="success-message" style="color: green;"></div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const dni = document.getElementById('dni').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const email = `${dni}@example.com`; // Convert DNI to email
+
+      // Reset messages
+      document.getElementById('error-message').textContent = '';
+      document.getElementById('success-message').textContent = '';
+
+       auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Successful login
+          document.getElementById('success-message').textContent = 'Login successful!';
+          // Redirect to index_old.html after successful login
+          window.location.href = 'index_old.html';
+        })
+        .catch((error) => {
+          console.error("Error logging in", error);
+          displayErrorMessage(error.message);
+        });
+    });
+  </script>
+</body>
+</html>

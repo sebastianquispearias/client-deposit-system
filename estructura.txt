@@ -1,0 +1,33 @@
+Listado de rutas de carpetas
+El número de serie del volumen es F464-EADC
+C:\USERS\USER\DESKTOP\PROYECTOS\CLIENT_DEPOSIT_SYSTEM\EXAMPLES\V2-SASS-CUSTOMIZED-DESIGN-SYSTEM
+|   .gitignore
+|   estructura.txt
+|   favicon.ico
+|   index.html
+|   package.json
+|   README.md
+|   yarn.lock
+|   
++---js
+|       main.js
+|       
+\---scss
+    |   main.scss
+    |   postcss.config.js
+    |   
+    +---components
+    |       _amount.scss
+    |       _input-amount.scss
+    |       _invoice-table.scss
+    |       _priority-range.scss
+    |       
+    +---layout
+    |       _body.scss
+    |       
+    \---theme
+            _dark.scss
+            _light.scss
+            _schemes.scss
+            _styles.scss
+            
